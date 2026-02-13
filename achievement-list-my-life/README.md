@@ -1,6 +1,6 @@
 # Achievement Log - Game Design Portfolio
 
-A game designer's achievements, certifications, and milestones presented as an MMORPG achievement panel. Built with Next.js, TypeScript, Tailwind CSS, and shadcn/ui components.
+A game designer's achievements, certifications, and milestones presented as an MMORPG achievement panel. Built with React, TypeScript, Vite, Tailwind CSS, and shadcn/ui components.
 
 ## Features
 
@@ -8,14 +8,14 @@ A game designer's achievements, certifications, and milestones presented as an M
 - 🏆 Categorized achievements (Education, Certifications, Experience, Sports, etc.)
 - 🎨 Beautiful dark theme with RPG aesthetics
 - 📱 Responsive design
-- ⚡ Built with Next.js 16 and React 19
+- ⚡ Built with React 19 and Vite
 
 ## Getting Started
 
 First, install dependencies:
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 # or
 yarn install
 # or
@@ -32,24 +32,32 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
 
 ## Project Structure
 
-- `app/` - Next.js app directory with pages and layouts
-- `components/` - React components including achievement panels and UI components
-- `lib/` - Utility functions and achievement data
-- `hooks/` - Custom React hooks
+- `src/` - Source code directory
+  - `components/` - React components including achievement panels and UI components
+  - `lib/` - Utility functions and achievement data
+  - `hooks/` - Custom React hooks
 - `public/` - Static assets
+- `index.html` - HTML entry point
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+This creates a `dist/` folder with the production build.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
 1. Push your code to GitHub, GitLab, or Bitbucket
 2. Import your repository on [Vercel](https://vercel.com/new)
-3. Vercel will automatically detect Next.js and configure the build settings
-4. Click "Deploy" and your app will be live!
+3. Vercel will automatically detect it as a static site
+4. The `vercel.json` is already configured for deployment
+5. Click "Deploy" and your app will be live!
 
 ### Manual Deployment
 
@@ -60,12 +68,11 @@ npm i -g vercel
 vercel
 ```
 
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
 ## Technologies Used
 
-- [Next.js](https://nextjs.org) - React framework
+- [React](https://react.dev) - UI library
 - [TypeScript](https://www.typescriptlang.org) - Type safety
+- [Vite](https://vitejs.dev) - Build tool
 - [Tailwind CSS](https://tailwindcss.com) - Styling
 - [shadcn/ui](https://ui.shadcn.com) - UI components
 - [Lucide React](https://lucide.dev) - Icons
