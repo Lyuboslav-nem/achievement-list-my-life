@@ -43,7 +43,6 @@ import {
   Scroll,
   Snowflake,
   Castle,
-  Cave,
   Building2,
   Plane,
   type LucideIcon,
@@ -2020,7 +2019,7 @@ export const achievements: Achievement[] = [
     points: 35,
     rarity: "rare",
     category: "tales",
-    icon: Cave,
+    icon: Mountain,
     unlocked: true,
   },
   {
