@@ -1,6 +1,6 @@
-# Achievement Log - Game Design Portfolio
+# Achievement Log - Personal RPG
 
-A game designer's achievements, certifications, and milestones presented as an MMORPG achievement panel. Built with React, TypeScript, Vite, Tailwind CSS, and shadcn/ui components.
+A personal RPG achievement list to track life milestones, accomplishments, and goals. Built with React, TypeScript, Vite, Tailwind CSS, and shadcn/ui components.
 
 ## Features
 
