@@ -17,29 +17,29 @@ export function AchievementCard({ achievement }: AchievementCardProps) {
 
   if (!achievement.unlocked) {
     return (
-      <div className="group relative flex items-center gap-4 rounded-sm border border-border/50 bg-muted/30 px-4 py-4 opacity-50">
+      <div className="group relative flex items-center gap-3 sm:gap-4 rounded-sm border border-border/50 bg-muted/30 px-3 py-3 sm:px-4 sm:py-4 opacity-50">
         {/* Locked icon container */}
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm border border-border bg-muted">
-          <Lock className="h-5 w-5 text-muted-foreground" />
+        <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-sm border border-border bg-muted">
+          <Lock className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground" />
         </div>
 
         {/* Content */}
-        <div className="flex flex-1 flex-col gap-1">
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-muted-foreground">
+        <div className="flex flex-1 flex-col gap-1 min-w-0">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+            <span className="text-xs sm:text-sm font-medium text-muted-foreground break-words">
               {achievement.title}
             </span>
             <RarityBadge rarity={achievement.rarity} />
           </div>
-          <p className="text-xs text-muted-foreground/70">
+          <p className="text-[11px] sm:text-xs text-muted-foreground/70 line-clamp-2">
             {achievement.description}
           </p>
         </div>
 
         {/* Points */}
         <div className="flex shrink-0 items-center gap-1 text-muted-foreground/50">
-          <Star className="h-3.5 w-3.5" />
-          <span className="text-xs font-bold">{achievement.points}</span>
+          <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+          <span className="text-[11px] sm:text-xs font-bold">{achievement.points}</span>
         </div>
       </div>
     )
@@ -49,17 +49,18 @@ export function AchievementCard({ achievement }: AchievementCardProps) {
     <button
       onClick={() => setIsExpanded(!isExpanded)}
       className={cn(
-        "group relative w-full text-left rounded-sm border px-4 py-4 transition-all",
-        "border-border/60 bg-card hover:border-[hsl(var(--gold))]/30",
+        "group relative w-full text-left rounded-sm border px-3 py-3 sm:px-4 sm:py-4 transition-all",
+        "border-border/60 bg-card hover:border-[hsl(var(--gold))]/30 active:border-[hsl(var(--gold))]/40",
+        "touch-manipulation", // Optimize touch response
         isExpanded && "border-[hsl(var(--gold))]/40",
         rarity.glow && isExpanded ? rarity.glow : ""
       )}
     >
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3 sm:gap-4">
         {/* Achievement icon */}
         <div
           className={cn(
-            "flex h-12 w-12 shrink-0 items-center justify-center rounded-sm border-2 transition-colors",
+            "flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-sm border-2 transition-colors",
             `border-[${rarity.border.replace("border-", "")}]`,
             achievement.rarity === "legendary"
               ? "border-[hsl(var(--legendary))] bg-[hsl(var(--legendary))]/10 text-[hsl(var(--legendary))]"
@@ -70,18 +71,18 @@ export function AchievementCard({ achievement }: AchievementCardProps) {
               : "border-border bg-muted text-muted-foreground"
           )}
         >
-          <Icon className="h-5 w-5" />
+          <Icon className="h-4 w-4 sm:h-5 sm:w-5" />
         </div>
 
         {/* Main content */}
-        <div className="flex flex-1 flex-col gap-1 overflow-hidden">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="font-serif text-sm font-semibold text-foreground">
+        <div className="flex flex-1 flex-col gap-1 overflow-hidden min-w-0">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+            <span className="font-serif text-xs sm:text-sm font-semibold text-foreground break-words">
               {achievement.title}
             </span>
             <RarityBadge rarity={achievement.rarity} />
           </div>
-          <p className="truncate text-xs text-secondary-foreground">
+          <p className="text-[11px] sm:text-xs text-secondary-foreground line-clamp-2 sm:truncate">
             {achievement.description}
           </p>
         </div>
@@ -89,15 +90,15 @@ export function AchievementCard({ achievement }: AchievementCardProps) {
         {/* Date + Points */}
         <div className="flex shrink-0 flex-col items-end gap-1">
           <div className="flex items-center gap-1 text-[hsl(var(--gold))]">
-            <Star className="h-3.5 w-3.5 fill-current" />
-            <span className="text-xs font-bold">{achievement.points}</span>
+            <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-current" />
+            <span className="text-[11px] sm:text-xs font-bold">{achievement.points}</span>
           </div>
           <div className="flex items-center gap-1">
             {achievement.inProgress && (
-              <Loader className="h-3 w-3 animate-spin text-[hsl(var(--gold))]/70" />
+              <Loader className="h-2.5 w-2.5 sm:h-3 sm:w-3 animate-spin text-[hsl(var(--gold))]/70" />
             )}
             <span className={cn(
-              "text-[11px]",
+              "text-[10px] sm:text-[11px]",
               achievement.inProgress ? "text-[hsl(var(--gold))]/70 font-medium" : "text-muted-foreground"
             )}>
               {achievement.date}

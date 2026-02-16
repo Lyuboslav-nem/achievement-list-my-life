@@ -20,9 +20,33 @@ export function AchievementsPanel() {
 
   const activeCategoryData = categories.find((c) => c.id === activeCategory)
 
-  // Split into unlocked and locked
-  const unlocked = filtered.filter((a) => a.unlocked)
-  const locked = filtered.filter((a) => !a.unlocked)
+  // Sort function: by rarity (legendary > epic > rare > common), then alphabetically
+  // Special case: Loremaster category - Christ is King always first
+  const sortAchievements = (achievements: typeof filtered) => {
+    const rarityOrder: Record<string, number> = {
+      legendary: 0,
+      epic: 1,
+      rare: 2,
+      common: 3,
+    }
+
+    return [...achievements].sort((a, b) => {
+      // Special handling for Loremaster: Christ is King always first
+      if (a.category === "knowledge" && a.id === "christ-is-king") return -1
+      if (b.category === "knowledge" && b.id === "christ-is-king") return 1
+
+      // Sort by rarity first
+      const rarityDiff = rarityOrder[a.rarity] - rarityOrder[b.rarity]
+      if (rarityDiff !== 0) return rarityDiff
+
+      // Then sort alphabetically by title
+      return a.title.localeCompare(b.title)
+    })
+  }
+
+  // Split into unlocked and locked, then sort each
+  const unlocked = sortAchievements(filtered.filter((a) => a.unlocked))
+  const locked = sortAchievements(filtered.filter((a) => !a.unlocked))
 
   return (
     <div className="flex min-h-screen flex-col lg:flex-row">
@@ -50,7 +74,7 @@ export function AchievementsPanel() {
           />
         </button>
         {mobileMenuOpen && (
-          <div className="border-t border-border px-3 pb-3 pt-2">
+          <div className="max-h-[60vh] overflow-y-auto border-t border-border px-3 pb-3 pt-2">
             <CategorySidebar
               categories={categories}
               activeCategory={activeCategory}
@@ -87,7 +111,7 @@ export function AchievementsPanel() {
       {/* ---- Main content ---- */}
       <main className="flex-1">
         <ScrollArea className="h-screen">
-          <div className="mx-auto max-w-3xl px-4 py-6 lg:px-8 lg:py-8">
+          <div className="mx-auto max-w-3xl px-3 py-4 sm:px-4 sm:py-6 lg:px-8 lg:py-8">
             {/* Summary */}
             <AchievementSummary />
 
