@@ -62,7 +62,9 @@ export function AchievementCard({ achievement }: AchievementCardProps) {
           className={cn(
             "flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-sm border-2 transition-colors",
             `border-[${rarity.border.replace("border-", "")}]`,
-            achievement.rarity === "legendary"
+            achievement.rarity === "mythic"
+              ? "border-[hsl(var(--mythic))] bg-[hsl(var(--mythic))]/10 text-[hsl(var(--mythic))]"
+              : achievement.rarity === "legendary"
               ? "border-[hsl(var(--legendary))] bg-[hsl(var(--legendary))]/10 text-[hsl(var(--legendary))]"
               : achievement.rarity === "epic"
               ? "border-[hsl(var(--epic))] bg-[hsl(var(--epic))]/10 text-[hsl(var(--epic))]"
@@ -120,7 +122,9 @@ export function AchievementCard({ achievement }: AchievementCardProps) {
       <div
         className={cn(
           "absolute left-0 top-3 bottom-3 w-0.5 rounded-full transition-opacity",
-          achievement.rarity === "legendary"
+          achievement.rarity === "mythic"
+            ? "bg-[hsl(var(--mythic))]"
+            : achievement.rarity === "legendary"
             ? "bg-[hsl(var(--legendary))]"
             : achievement.rarity === "epic"
             ? "bg-[hsl(var(--epic))]"

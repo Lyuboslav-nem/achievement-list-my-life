@@ -6,6 +6,13 @@ const rarityConfig: Record<
   AchievementRarity,
   { bg: string; border: string; text: string; glow: string; label: string }
 > = {
+  mythic: {
+    bg: "bg-[hsl(20,80%,50%)]",
+    border: "border-[hsl(20,80%,50%)]",
+    text: "text-[hsl(0,0%,98%)]",
+    glow: "shadow-[0_0_20px_hsl(20,80%,50%,0.5)]",
+    label: "Mythic",
+  },
   legendary: {
     bg: "bg-[hsl(35,100%,55%)]",
     border: "border-[hsl(35,100%,55%)]",

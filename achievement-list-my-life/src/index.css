@@ -65,6 +65,7 @@ body {
     --gold: 40 70% 50%;
     --gold-light: 40 80% 65%;
     --gold-dark: 40 60% 35%;
+    --mythic: 20 80% 50%;
     --legendary: 35 100% 55%;
     --epic: 280 60% 55%;
     --rare: 210 80% 55%;
@@ -81,6 +82,5 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
 
 

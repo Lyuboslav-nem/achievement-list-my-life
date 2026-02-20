@@ -48,7 +48,7 @@ import {
   type LucideIcon,
 } from "lucide-react"
 
-export type AchievementRarity = "legendary" | "epic" | "rare" | "common"
+export type AchievementRarity = "mythic" | "legendary" | "epic" | "rare" | "common"
 
 export interface Achievement {
   id: string
@@ -238,6 +238,18 @@ export const achievements: Achievement[] = [
     category: "education",
     icon: BookOpen,
     unlocked: true,
+  },
+  {
+    id: "tefl-250h-level5",
+    title: "Master of Tongues",
+    description: "TEFL (Teaching English as a Foreign Language) \u2014 250h Level 5 Diploma",
+    flavor: "\"Two hundred and fifty hours of mastery. The Level 5 Diploma marks you as a true teacher of tongues, one who can bridge worlds through language. You hold the power to unlock new realms of communication for those who seek to learn. This seal proves you understand not just the mechanics of English, but the art of teaching itself. A gateway to classrooms across the globe, where your knowledge becomes a gift to others.\"",
+    date: "???",
+    points: 60,
+    rarity: "epic",
+    category: "education",
+    icon: GraduationCap,
+    unlocked: false,
   },
 
   // ===== CERTIFICATIONS (Marks of Mastery) =====
@@ -2140,6 +2152,18 @@ export const achievements: Achievement[] = [
     category: "sanctuaries",
     icon: Church,
     unlocked: true,
+  },
+  {
+    id: "abuna-yemata-guh",
+    title: "The Cliffside Sanctuary",
+    description: "Visit Abuna Yemata Guh \u2014 Monolithic Church, Tigray, Ethiopia",
+    flavor: "\"Carved into the face of a cliff, 2,580 meters above sea level, this sixth-century Ethiopian Orthodox church demands a pilgrimage of both body and spirit. To reach it, you must climb on foot, ascending 200 meters above the surrounding terrain. The journey itself is a prayer. Inside, 15th-century wall paintings watch over a space where faith and architecture merge into something transcendent. This is not merely a church \u2014 it is a testament to human devotion, carved into stone where earth meets sky. A place where the faithful have risked everything to touch the divine.\"",
+    date: "???",
+    points: 100,
+    rarity: "mythic",
+    category: "sanctuaries",
+    icon: Church,
+    unlocked: false,
   },
 
   // ===== HEARTHBOUND (VILLAGE LIFE & HOMESTEAD) =====

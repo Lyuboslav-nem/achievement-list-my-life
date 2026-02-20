@@ -20,14 +20,15 @@ export function AchievementsPanel() {
 
   const activeCategoryData = categories.find((c) => c.id === activeCategory)
 
-  // Sort function: by rarity (legendary > epic > rare > common), then alphabetically
+  // Sort function: by rarity (mythic > legendary > epic > rare > common), then alphabetically
   // Special case: Loremaster category - Christ is King always first
   const sortAchievements = (achievements: typeof filtered) => {
     const rarityOrder: Record<string, number> = {
-      legendary: 0,
-      epic: 1,
-      rare: 2,
-      common: 3,
+      mythic: 0,
+      legendary: 1,
+      epic: 2,
+      rare: 3,
+      common: 4,
     }
 
     return [...achievements].sort((a, b) => {

@@ -10,6 +10,7 @@ export function AchievementSummary() {
   const maxPoints = achievements.reduce((sum, a) => sum + a.points, 0)
   const progressPercent = Math.round((unlocked.length / achievements.length) * 100)
 
+  const mythic = unlocked.filter((a) => a.rarity === "mythic").length
   const legendary = unlocked.filter((a) => a.rarity === "legendary").length
   const epic = unlocked.filter((a) => a.rarity === "epic").length
   const rare = unlocked.filter((a) => a.rarity === "rare").length
@@ -58,6 +59,12 @@ export function AchievementSummary() {
 
       {/* Rarity breakdown */}
       <div className="mt-4 flex flex-wrap gap-4">
+        <div className="flex items-center gap-1.5">
+          <Shield className="h-3.5 w-3.5 text-[hsl(var(--mythic))]" />
+          <span className="text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--mythic))]">
+            {mythic} Mythic
+          </span>
+        </div>
         <div className="flex items-center gap-1.5">
           <Shield className="h-3.5 w-3.5 text-[hsl(var(--legendary))]" />
           <span className="text-[11px] font-bold uppercase tracking-wider text-[hsl(var(--legendary))]">
